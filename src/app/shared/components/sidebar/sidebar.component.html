@@ -1,0 +1,43 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <a routerLink="/" routerLinkActive="active">
+            <div class="header">
+                <h2 class="mat-h1">OSAS</h2>
+            </div>
+            <img src="./assets/stop.png"
+                alt="Shekhar Jha">
+        </a>
+    </div>
+
+
+    <a mat-list-item routerLink="/" routerLinkActive="list-item-active">
+        <mat-icon>home</mat-icon>
+        Dashboard
+    </a>
+    <a mat-list-item routerLink="/profile" routerLinkActive="list-item-active">
+        <mat-icon>person_outline</mat-icon>
+        Profile
+    </a>
+    <a mat-list-item routerLink="/assets" routerLinkActive="list-item-active">
+        <mat-icon>credit_card</mat-icon>
+        Assets
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>DOCUMENTATIONS</h2>
+
+    <a mat-list-item routerLink="/getting_started" routerLinkActive="list-item-active">
+        <mat-icon>table_chart</mat-icon>
+        Getting Started
+    </a>
+    <a mat-list-item routerLink="/faq" routerLinkActive="list-item-active">
+        <mat-icon>question_answer</mat-icon>
+        FAQ
+    </a>
+    <a mat-list-item routerLink="/rate_us" routerLinkActive="list-item-active">
+        <mat-icon>star_half</mat-icon>
+        Rate Us!
+    </a>
+
+</mat-nav-list>

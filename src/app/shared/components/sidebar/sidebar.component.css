@@ -1,0 +1,19 @@
+.profile-card {
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+}
+.profile-card > a > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%
+}
+.mat-icon {
+    vertical-align: middle;
+    margin-right: 20px;
+}
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    color: #673AB7;
+}
