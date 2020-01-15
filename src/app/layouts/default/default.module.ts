@@ -5,9 +5,10 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule, MatDividerModule, MatIconModule } from '@angular/material'
+import { MatSidenavModule, MatDividerModule, MatIconModule, MatListModule } from '@angular/material'
 import { AssetsPageComponent } from 'src/app/modules/assets-page/assets-page.component';
 import {MatCardModule} from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import {MatCardModule} from '@angular/material/card';
     MatSidenavModule,
     MatDividerModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule,
+    FormsModule
   ]
 })
 export class DefaultModule { }

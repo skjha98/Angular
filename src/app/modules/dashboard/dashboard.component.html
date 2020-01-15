@@ -1,9 +1,13 @@
 <h2 id="wrapper">DASHBOARD</h2>
+<br>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-9">
             <mat-card>
                 <mat-card-title>Latest Notification</mat-card-title>
+                <mat-card-content>
+                    <mat-list-item>You Car Parking sticker request has been successfully completed!</mat-list-item>
+                </mat-card-content>
             </mat-card>
         </div>
         <div class="col-md-3">
@@ -14,5 +18,32 @@
                 </mat-card-content>
             </mat-card>
         </div>
+    </div>
+    <br>
+    <br>
+    <div class="mb-4">
+        <mat-card>
+            <input type="text" #myInput [(ngModel)]="request_name" (input)="search()">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>REQUEST NAME</th>
+                        <th>LAST UPDATED DATE</th>
+                        <th>STATUS</th>
+                        <th>COMPLETION</th>
+                        <th>PROGRESS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of requests">
+                        <td>{{ request.request_name }}</td>
+                        <td>{{ request.last_updated_date }}</td>
+                        <td>{{ request.status }}</td>
+                        <td>{{ request.completion }}</td>
+                        <td> "PROGESSBAR WILL BE SHOWN HERE" </td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card>
     </div>
 </div>

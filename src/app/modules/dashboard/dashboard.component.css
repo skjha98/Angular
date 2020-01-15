@@ -22,3 +22,6 @@ mat-icon {
     color: white;
     background-color: #FFC107;
 }
+mat-card {
+    height: 100%;
+}
