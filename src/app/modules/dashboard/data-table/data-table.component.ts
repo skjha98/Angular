@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material';
 
 export interface RequestElement {
   request_name: string;
@@ -29,7 +29,15 @@ const ELEMENT_REQUEST: RequestElement[] = [
 })
 export class DataTableComponent {
 
-  displayedColumns: string[] = ['request_number', 'request_name', 'last_updated_date', 'status', 'completion'];
-  dataSource = ELEMENT_REQUEST;
+  displayedColumns: string[] = ['request_number', 'request_name', 'last_updated_date', 'completion', 'status'];
+  dataSource = new MatTableDataSource(ELEMENT_REQUEST);
+
+  logData(row) {
+    console.log(row);
+  }
+
+  applyFilter(filterValue: String) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   
 }

@@ -1,34 +1,38 @@
-<p>data-table works!</p>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<mat-form-field class="col-md-6">
+  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search Request" >
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<table mat-table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
-    <!-- Position Column -->
+    <!-- Request Number Column -->
     <ng-container matColumnDef="request_number">
       <th mat-header-cell *matHeaderCellDef> Request No. </th>
       <td mat-cell *matCellDef="let element"> {{element.request_number}} </td>
     </ng-container>
   
-    <!-- Name Column -->
+    <!-- Request Name Column -->
     <ng-container matColumnDef="request_name">
       <th mat-header-cell *matHeaderCellDef> Request Name </th>
       <td mat-cell *matCellDef="let element"> {{element.request_name}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
+    <!-- Last Updated Column -->
     <ng-container matColumnDef="last_updated_date">
       <th mat-header-cell *matHeaderCellDef> Last Updated Date </th>
       <td mat-cell *matCellDef="let element"> {{element.last_updated_date}} </td>
     </ng-container>
     
-    <!-- Symbol Column-->
+    <!-- Completion Column-->
     <ng-container matColumnDef="completion">
         <th mat-header-cell *matHeaderCellDef> Completion </th>
         <td mat-cell *matCellDef="let element"> {{element.completion}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Status Column -->
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef> Status </th>
       <td mat-cell *matCellDef="let element"> {{element.status}} </td>
@@ -36,7 +40,7 @@
 
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
   
