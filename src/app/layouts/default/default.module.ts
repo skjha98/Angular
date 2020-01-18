@@ -9,6 +9,7 @@ import { MatSidenavModule, MatDividerModule, MatIconModule, MatListModule, MatTa
 import { AssetsPageComponent } from 'src/app/modules/assets-page/assets-page.component';
 import { MatCardModule } from '@angular/material/card';
 import { DataTableComponent } from 'src/app/modules/dashboard/data-table/data-table.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DataTableComponent } from 'src/app/modules/dashboard/data-table/data-ta
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgbModule
   ]
 })
 export class DefaultModule { }

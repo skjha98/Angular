@@ -1,3 +1,40 @@
 table {
     width: 100%;
-  }
+}
+
+.mat-column-request_number {
+  width: 10%;
+  text-align: center !important;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.mat-column-request_name {
+  width: 50%;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.mat-column-last_updated_date {
+  width: 10%;
+  text-align: center !important;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.mat-column-completion {
+  width: 20%;
+  white-space: unset !important;
+  text-align: center !important;
+}
+.mat-column-status {
+  width: 10%;
+  text-align: center !important;
+  white-space: unset !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}

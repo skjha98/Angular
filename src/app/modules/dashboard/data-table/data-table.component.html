@@ -25,20 +25,29 @@
       <th mat-header-cell *matHeaderCellDef> Last Updated Date </th>
       <td mat-cell *matCellDef="let element"> {{element.last_updated_date}} </td>
     </ng-container>
+
     
     <!-- Completion Column-->
     <ng-container matColumnDef="completion">
         <th mat-header-cell *matHeaderCellDef> Completion </th>
-        <td mat-cell *matCellDef="let element"> {{element.completion}} </td>
+        <td mat-cell *matCellDef="let element">
+          <div [ngSwitch]="true" >
+            <ngb-progressbar *ngSwitchCase="element.completion==100" showValue="true" type="success" value={{element.completion}}></ngb-progressbar>
+            <ngb-progressbar *ngSwitchCase="element.completion==0" showValue="true" type="danger" value={{element.completion}}></ngb-progressbar>
+            <ngb-progressbar *ngSwitchCase="element.completion<50" type="warning" value={{element.completion}} [striped]="true" [animated]="true"><i>{{element.completion}}%</i></ngb-progressbar>
+            <ngb-progressbar *ngSwitchCase="element.completion<75 && element.completion>50" type="danger" value={{element.completion}} [striped]="true" [animated]="true"><i>{{element.completion}}%</i></ngb-progressbar>
+            <ngb-progressbar *ngSwitchDefault type="info" value={{element.completion}} [striped]="true" [animated]="true"><i>{{element.completion}}%</i></ngb-progressbar>
+          </div>
+        </td>
     </ng-container>
-
+    
     <!-- Status Column -->
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      <td mat-cell *matCellDef="let element">{{element.status}} </td>
     </ng-container>
+    
 
-  
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
