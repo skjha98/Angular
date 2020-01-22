@@ -10,6 +10,8 @@ import { AssetsPageComponent } from 'src/app/modules/assets-page/assets-page.com
 import { MatCardModule } from '@angular/material/card';
 import { DataTableComponent } from 'src/app/modules/dashboard/data-table/data-table.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormDataService } from 'src/app/services/form-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
+  ],
+  providers: [
+    FormDataService
   ]
 })
 export class DefaultModule { }
