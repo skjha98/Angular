@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Create New Request</h2>
+<mat-dialog-content>You can create new Request from here!</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="container-fluid">
+        <div>
+            <mat-form-field>
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="selected">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let form of data" [value]="form.id">{{ form.type }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>You selected: {{selected}}</p>
+        </div>
+        <div class="submitButton">
+            <button mat-fab mat-dialog-close>
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </div>
+    </div>
+</mat-dialog-actions>
