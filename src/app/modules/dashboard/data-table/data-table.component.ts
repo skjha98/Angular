@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
-import { FormDataService } from 'src/app/services/form-data.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-data-table',
@@ -10,22 +10,21 @@ import { FormDataService } from 'src/app/services/form-data.service';
 
 export class DataTableComponent {
 
+  dataSource;
   displayedColumns: string[] = ['request_number', 'request_name', 'last_updated_date', 'completion', 'status'];
+  constructor(private http: HttpClient) { }
 
-  ELEMENT_REQUEST = [];
-  constructor(private _formDataService: FormDataService) {
-    console.log("Before getting data: ", this.ELEMENT_REQUEST)
-    this._formDataService.getformData()
-    .subscribe((data:any) => {
-      this.ELEMENT_REQUEST = data;
-      console.log("Inside: ",data);
-    }, err => {
-      console.log(err);
-    })
-    console.log("After getting data: ", this.ELEMENT_REQUEST)
+  private async fetchPromiseMatTableSource() {
+    const _url = "/assets/data/form_data.json";
+    const data = await this.http.get<any[]>(_url).toPromise();
+    // data modification to be done here!
+    this.dataSource = new MatTableDataSource(data);
+    console.log(this.dataSource);
   }
 
-  dataSource = new MatTableDataSource(this.ELEMENT_REQUEST);
+  ngOnInit(): void {
+    this.fetchPromiseMatTableSource();
+  }
 
   logData(row) {
     console.log(row);
