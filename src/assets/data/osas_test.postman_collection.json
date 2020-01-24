@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "3cebf28f-6444-4ad2-b2a2-3762084b50d2",
+		"name": "osas_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/formtype",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/formtype",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"formtype"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "formtype",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/formtype",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"formtype"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"GYM\",\n        \"type\": \"GYM form\"\n    },\n    {\n        \"id\": \"PRK\",\n        \"type\": \"Parking Form\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "form/234",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/form/234",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"form",
+						"234"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form/234",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/form/234",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"form",
+								"234"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 234,\r\n    \"emp_id\": 679699,\r\n    \"emp_name\": \"Pavan GUPTA\",\r\n    \"status\": \"Draft\",\r\n    \"form_id\": \"GYM\",\r\n    \"comments\": \"sample Comment\",\r\n    \"created_date\": \"2019-01-01\",\r\n    \"updated_date\": null,\r\n    \"activity\": [\r\n       {\r\n          \"id\": 2,\r\n          \"status\": \"Draft\",\r\n          \"action_taken_by\": \"pavan.gupta@soprasteria.com\",\r\n          \"comments\": \"Initial\",\r\n          \"created_date\": \"2019-01-01\"\r\n       }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "form/235",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/form/235",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"form",
+						"235"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "form/235",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/form/235",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"form",
+								"235"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"id\":235,\r\n   \"emp_id\":679690,\r\n   \"emp_name\":\"Pavan MITTAL\",\r\n   \"status\":\"Submitted\",\r\n   \"form_id\":\"PRK\",\r\n   \"comments\":\"Submiiting the form\",\r\n   \"created_date\":\"2019-10-10\",\r\n   \"updated_date\":\"2019-12-10\",\r\n   \"activity\":[\r\n      {\r\n         \"id\":2,\r\n         \"status\":\"Draft\",\r\n         \"action_taken_by\":\"pavan.mittal@soprasteria.com\",\r\n         \"comments\":\"Initial\",\r\n         \"created_date\":\"2019-01-01\"\r\n      },\r\n      {\r\n         \"id\":2,\r\n         \"status\":\"Submitted\",\r\n         \"action_taken_by\":\"pavan.mittal@soprasteria.com\",\r\n         \"comments\":\"Initial\",\r\n         \"created_date\":\"2019-01-01\"\r\n      },\r\n      {\r\n         \"id\":3,\r\n         \"status\":\"Approved\",\r\n         \"action_taken_by\":\"manager@soprasteria.com\",\r\n         \"comments\":\"Approved\",\r\n         \"created_date\":\"2019-01-01\"\r\n      },\r\n      {\r\n         \"id\":4,\r\n         \"status\":\"Final Approved\",\r\n         \"action_taken_by\":\"department@soprasteria.com\",\r\n         \"comments\":\"You can collect the sticket from Ground Floor\",\r\n         \"created_date\":\"2019-01-01\"\r\n      }\r\n   ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "forms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/forms",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"forms"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "forms",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/forms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"forms"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 234,\n        \"emp_id\": 679699,\n        \"emp_name\": \"Pavan GUPTA\",\n        \"status\": \"Draft\",\n        \"form_id\": \"GYM\",\n        \"comments\": \"sample Comment\",\n        \"created_date\": \"2019-01-01\",\n        \"updated_date\": null,\n        \"activity\": [\n            {\n                \"id\": 2,\n                \"status\": \"Draft\",\n                \"action_taken_by\": \"pavan.gupta@soprasteria.com\",\n                \"comments\": \"Initial\",\n                \"created_date\": \"2019-01-01\"\n            }\n        ]\n    },\n    {\n        \"id\": 235,\n        \"emp_id\": 679690,\n        \"emp_name\": \"Pavan MITTAL\",\n        \"status\": \"Submitted\",\n        \"form_id\": \"PRK\",\n        \"comments\": \"Submiiting the form\",\n        \"created_date\": \"2019-10-10\",\n        \"updated_date\": \"2019-12-10\",\n        \"activity\": [\n            {\n                \"id\": 2,\n                \"status\": \"Draft\",\n                \"action_taken_by\": \"pavan.mittal@soprasteria.com\",\n                \"comments\": \"Initial\",\n                \"created_date\": \"2019-01-01\"\n            },\n            {\n                \"id\": 2,\n                \"status\": \"Submitted\",\n                \"action_taken_by\": \"pavan.mittal@soprasteria.com\",\n                \"comments\": \"Initial\",\n                \"created_date\": \"2019-01-01\"\n            },\n            {\n                \"id\": 3,\n                \"status\": \"Approved\",\n                \"action_taken_by\": \"manager@soprasteria.com\",\n                \"comments\": \"Approved\",\n                \"created_date\": \"2019-01-01\"\n            },\n            {\n                \"id\": 4,\n                \"status\": \"Final Approved\",\n                \"action_taken_by\": \"department@soprasteria.com\",\n                \"comments\": \"You can collect the sticket from Ground Floor\",\n                \"created_date\": \"2019-01-01\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
