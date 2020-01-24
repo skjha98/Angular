@@ -12,6 +12,7 @@ import { DataTableComponent } from 'src/app/modules/dashboard/data-table/data-ta
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestDialogComponent } from 'src/app/modules/dashboard/request-dialog/request-dialog.component';
+import { ParkingFormComponent } from 'src/app/modules/parking-form/parking-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RequestDialogComponent } from 'src/app/modules/dashboard/request-dialog
     DashboardComponent,
     ProfileComponent,
     AssetsPageComponent,
+    ParkingFormComponent,
     DataTableComponent,
     RequestDialogComponent
   ],

@@ -4,6 +4,7 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { AssetsPageComponent } from './modules/assets-page/assets-page.component';
+import { ParkingFormComponent } from './modules/parking-form/parking-form.component';
 
 
 const routes: Routes = [{
@@ -18,6 +19,9 @@ const routes: Routes = [{
   },{
     path: 'assets',
     component: AssetsPageComponent
+  },{
+    path: 'parking_form',
+    component: ParkingFormComponent
   }]
 }];
 

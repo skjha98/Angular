@@ -23,4 +23,12 @@ export class RequestDialogComponent implements OnInit {
     this.fetchPromiseSelectOption();
   }
 
+  submitForm() {
+    if(this.selected == 'PRK') {
+      console.log("Parking Selected");
+    } else if(this.selected == 'GYM') {
+      console.log("Gym Member form selected");
+    }
+  }
+
 }
