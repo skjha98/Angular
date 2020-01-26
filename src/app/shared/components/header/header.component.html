@@ -5,31 +5,22 @@
         </button>
         <img src="./assets/logo.png" alt="OSAS Logo">
         <span>OSAS</span>
-        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-            <ul fxLayout="row" fxLayoutGap="20px">
-                <li>
-                    <button mat-icon-button>
-                        <mat-icon>settings</mat-icon>
-                    </button>
-                </li>
-                <li>
-                    <button mat-icon-button>
-                        <mat-icon>help_outline</mat-icon>
-                    </button>
-                </li>
-                <li>
-                    <button mat-button [matMenuTriggerFor]="menu">
-                        <mat-icon matPrefix>person_outline</mat-icon>
-                        XYZ abc
-                    </button>
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>exit_to_app</mat-icon>
-                            Sign Out
-                        </button>
-                    </mat-menu>
-                </li>
-            </ul>
-        </div>
+        <span class="spacer"></span>
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>help_outline</mat-icon>
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon matPrefix>person_outline</mat-icon>
+            XYZ abc
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                Sign Out
+            </button>
+        </mat-menu>
     </mat-toolbar-row>
 </mat-toolbar>
