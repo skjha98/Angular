@@ -1,4 +1,6 @@
 export class FormStatusData {
+    employee_number: number;
+    employee_name: string;
     request_number: number;
     request_name: string;
     last_updated_date: string;
@@ -7,6 +9,8 @@ export class FormStatusData {
     activities_by_now;
 
     constructor(private userResponse: any) {
+        this.employee_number = userResponse.emp_id;
+        this.employee_name = userResponse.emp_name;
         switch(userResponse.form_id){
             case "GYM": this.request_name = "Gym Membership Form";
             break;
