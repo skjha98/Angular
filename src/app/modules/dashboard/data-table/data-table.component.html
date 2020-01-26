@@ -1,55 +1,95 @@
-
 <mat-form-field class="col-md-6">
-  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search Request" >
+  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search Request">
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 <table mat-table [dataSource]="dataSource">
 
-    <!--- Note that these columns can be defined in any order.
+  <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Request Number Column -->
-    <ng-container matColumnDef="request_number">
-      <th mat-header-cell *matHeaderCellDef> Request No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.request_number}} </td>
-    </ng-container>
-  
-    <!-- Request Name Column -->
-    <ng-container matColumnDef="request_name">
-      <th mat-header-cell *matHeaderCellDef> Request Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.request_name}} </td>
-    </ng-container>
-  
-    <!-- Last Updated Column -->
-    <ng-container matColumnDef="last_updated_date">
-      <th mat-header-cell *matHeaderCellDef> Last Updated Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.last_updated_date}} </td>
-    </ng-container>
 
-    
-    <!-- Completion Column-->
-    <ng-container matColumnDef="completion">
-        <th mat-header-cell *matHeaderCellDef> Completion </th>
-        <td mat-cell *matCellDef="let element">
-          <div [ngSwitch]="true" >
-            <ngb-progressbar *ngSwitchCase="element.completion==100" showValue="true" type="success" value={{element.completion}}></ngb-progressbar>
-            <ngb-progressbar *ngSwitchCase="element.completion==0" showValue="true" type="danger" value={{element.completion}}></ngb-progressbar>
-            <ngb-progressbar *ngSwitchCase="element.completion<50" type="warning" value={{element.completion}} [striped]="true" [animated]="true"><i>{{element.completion}}%</i></ngb-progressbar>
-            <ngb-progressbar *ngSwitchCase="element.completion<75 && element.completion>50" type="danger" value={{element.completion}} [striped]="true" [animated]="true"><i>{{element.completion}}%</i></ngb-progressbar>
-            <ngb-progressbar *ngSwitchDefault type="info" value={{element.completion}} [striped]="true" [animated]="true"><i>{{element.completion}}%</i></ngb-progressbar>
-          </div>
-        </td>
-    </ng-container>
-    
-    <!-- Status Column -->
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let element">{{element.status}} </td>
-    </ng-container>
-    
+  <!-- Request Number Column -->
+  <ng-container matColumnDef="request_number">
+    <th mat-header-cell *matHeaderCellDef> Request No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.request_number}} </td>
+  </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
-  
+  <!-- Request Name Column -->
+  <ng-container matColumnDef="request_name">
+    <th mat-header-cell *matHeaderCellDef> Request Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.request_name}} </td>
+  </ng-container>
+
+  <!-- Last Updated Column -->
+  <ng-container matColumnDef="last_updated_date">
+    <th mat-header-cell *matHeaderCellDef> Last Updated Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.last_updated_date}} </td>
+  </ng-container>
+
+
+  <!-- Completion Column-->
+  <ng-container matColumnDef="completion">
+    <th mat-header-cell *matHeaderCellDef> Completion </th>
+    <td mat-cell *matCellDef="let element">
+      <div [ngSwitch]="true">
+        <ngb-progressbar *ngSwitchCase="element.completion==100" showValue="true" type="success"
+          value={{element.completion}}></ngb-progressbar>
+        <ngb-progressbar *ngSwitchCase="element.completion==0" showValue="true" type="danger"
+          value={{element.completion}}></ngb-progressbar>
+        <ngb-progressbar *ngSwitchCase="element.completion<50" type="warning" value={{element.completion}}
+          [striped]="true" [animated]="true"><i>{{element.completion}}%</i></ngb-progressbar>
+        <ngb-progressbar *ngSwitchCase="element.completion<75 && element.completion>50" type="danger"
+          value={{element.completion}} [striped]="true" [animated]="true"><i>{{element.completion}}%</i>
+        </ngb-progressbar>
+        <ngb-progressbar *ngSwitchDefault type="info" value={{element.completion}} [striped]="true" [animated]="true">
+          <i>{{element.completion}}%</i></ngb-progressbar>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element">{{element.status}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row (click)="logData(mytemplate, row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<!-- MODAL HERE!!! -->
+<div>
+  <ng-template #mytemplate>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Employee ID</strong><br>{{ row.userResponse.emp_id }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Request ID</strong><br>{{ row.request_number }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Employee Name</strong><br>{{ row.userResponse.emp_name }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Request Name</strong><br>{{ row.request_name }}</p>
+      </div>
+    </div>
+    <br>
+    <div>
+      <strong>Activities: </strong>
+    </div>
+    <div class="border border-info" style="padding: 8px;">
+      <div *ngFor="let activity of row.activities_by_now">
+        <p>
+          <strong>Status: </strong>{{ activity.status }}<br>
+          <strong>Action taken by: </strong>{{ activity.action_taken_by }}<br>
+          <strong>Comments: </strong>{{ activity.comments }}<br>
+          <strong>Date: </strong>{{ activity.created_date }}
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</div>

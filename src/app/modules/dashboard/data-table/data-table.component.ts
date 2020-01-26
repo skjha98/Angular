@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { FormStatusData } from './FormStatusData';
 
@@ -13,14 +13,14 @@ export class DataTableComponent {
 
   dataSource;
   displayedColumns: string[] = ['request_number', 'request_name', 'last_updated_date', 'completion', 'status'];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public dialog: MatDialog) { }
 
   private async fetchPromiseMatTableSource() {
     const _url = "https://5d8fe12a-bde5-4c16-902a-473b479ca218.mock.pstmn.io/forms";
     const data = await this.http.get<any[]>(_url).toPromise();
     console.log("Data Received: ", data);
     let updatedData = data.map(info => new FormStatusData(info));
-    console.log(updatedData);
+    console.log("Updated Data: ", updatedData);
     // data modification to be done here!
     this.dataSource = new MatTableDataSource(updatedData);
     console.log(this.dataSource);
@@ -30,8 +30,13 @@ export class DataTableComponent {
     this.fetchPromiseMatTableSource();
   }
 
-  logData(row) {
+  row;
+  logData(templateRef, row) {
     console.log(row);
+    this.row = row;
+    const dialogRef = this.dialog.open(templateRef,{
+      maxHeight: '450px'
+     });
   }
 
   applyFilter(filterValue: String) {
