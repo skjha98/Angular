@@ -35,6 +35,7 @@ export class RequestDialogComponent implements OnInit {
       this.route.navigate(['parking_form'])
     } else if (this.selected == 'GYM') {
       console.log("Gym Member form selected");
+      this.route.navigate(['gym_form'])
     }
   }
 

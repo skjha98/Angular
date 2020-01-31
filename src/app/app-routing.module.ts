@@ -5,6 +5,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { AssetsPageComponent } from './modules/assets-page/assets-page.component';
 import { ParkingFormComponent } from './modules/parking-form/parking-form.component';
+import { GymFormComponent } from './modules/gym-form/gym-form.component';
 
 
 const routes: Routes = [{
@@ -22,6 +23,9 @@ const routes: Routes = [{
   },{
     path: 'parking_form',
     component: ParkingFormComponent
+  },{
+    path: 'gym_form',
+    component: GymFormComponent
   }]
 }];
 

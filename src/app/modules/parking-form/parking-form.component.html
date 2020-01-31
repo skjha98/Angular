@@ -1,109 +1,88 @@
 <h2 id="wrapper">Car / Two-Wheeler Parking Sticker Form</h2>
 <div class="container mainCard">
     <mat-card>
-        <div class="row">
-            <div class="col-md-12 order-md-1">
-                <form class="needs-validation" novalidate="">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid Name is required.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="employeeId">Employee ID</label>
-                            <input type="number" class="form-control" id="employeeId" placeholder="" value=""
-                                required="">
-                            <div class="invalid-feedback">
-                                Valid Employee Id is required.
-                            </div>
-                        </div>
+        <div class="col-md-12 order-md-1">
+            <form [formGroup]="gymForm">
+                <!-- Name and Employee ID -->
+                <div class="row">
+                    <div class="col-md-6 mb-6 form-group">
+                        <label for="name">Name</label>
+                        <input formControlName="name" type="text" class="form-control">
                     </div>
-                    <!-- Phase 1: Name, Employee Id-->
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="name">Level Particular</label>
-                            <input type="text" class="form-control" id="levelParticular" placeholder="" value="">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="regNumber">Two-Wheeler / Car Registration Number</label>
-                            <input type="text" class="form-control" id="regNumber" placeholder="XXXX-XX-1234" value=""
-                                required="">
-                            <div class="invalid-feedback">
-                                Valid Registration Number is required.
-                            </div>
-                        </div>
+                    <div class="col-md-6 mb-6 form-group">
+                        <label for="employee_id">Employee ID</label>
+                        <input formControlName="employee_id" type="number" class="form-control">
                     </div>
-                    <!-- Phase 2: Level Particular Two-Wheeler Car Reg Number-->
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="processParticular">Process Particular</label>
-                            <input type="text" class="form-control" id="processParticular" placeholder="" value="">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="shiftParticular">Shift Particular</label>
-                            <input type="text" class="form-control" id="shiftParticular" placeholder="0900 - 1800"
-                                value="">
-                            <div class="invalid-feedback">
-                                Valid Shift is required.
-                            </div>
-                        </div>
+                </div>
+                <!-- Level Particular and Registration Number-->
+                <div class="row">
+                    <div class="col-md-6 mb-6 form-group">
+                        <label for="level_particular">Level Particular</label>
+                        <input formControlName="level_particular" type="text" class="form-control">
                     </div>
-                    <!-- Phase 3: Process Particular Shift Paticular-->
-
-                    <div class="mb-3">
-                        <label for="addressOfResidence">Address of Residence</label>
+                    <div class="col-md-6 mb-6 form-group">
+                        <label for="registration_number">Two-Wheeler / Car Registration Number</label>
+                        <input formControlName="registration_number" type="text" class="form-control"
+                            placeholder="XXXX-XX-1234">
+                    </div>
+                </div>
+                <!-- Process Particular and Shift Particular -->
+                <div class="row">
+                    <div class="col-md-6 mb-3 form-group">
+                        <label for="process_particular">Process Particular</label>
+                        <input formControlName="process_particular" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3 form-group">
+                        <label for="shift_particular">Shift Particular</label>
+                        <input formControlName="shift_particular" type="text" class="form-control"
+                            placeholder="0900 - 1800">
+                    </div>
+                </div>
+                <!-- Address of Residence -->
+                <div class="mb-3">
+                    <label for="address_of_residence">Address of Residence</label>
+                    <div class="input-group form-group">
+                        <textarea formControlName="address_of_residence" class="form-control"></textarea>
+                    </div>
+                </div>
+                <!-- Contact Number and Emergency Contact Number -->
+                <div class="row">
+                    <div class="col-md-6 mb-3 form-group">
+                        <label for="contact_number">Contact Number</label>
                         <div class="input-group">
-                            <textarea class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <!-- Phase 4: Address of Residence-->
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="contactNumber">Contact Number</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">+91</span>
-                                </div>
-                                <input type="number" class="form-control" id="contact Number" placeholder=""
-                                    required="">
-                                <div class="invalid-feedback" style="width: 100%;">
-                                    Your contact number is required.
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
                             </div>
+                            <input formControlName="contact_number" type="number" class="form-control">
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="emergencyNumber">Emergency Contact Number</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">+91</span>
-                                </div>
-                                <input type="number" class="form-control" id="contactNumber" placeholder="" required="">
-                                <div class="invalid-feedback" style="width: 100%;">
-                                    Your emergency contact number is required.
-                                </div>
+                    </div>
+                    <div class="col-md-6 mb-3 form-group">
+                        <label for="emergency_number">Emergency Contact Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
                             </div>
+                            <input formControlName="emergency_number" type="number" class="form-control">
                         </div>
                     </div>
-                    <!-- Phase 5: Contact Number Emergency Contact Number-->
-                    <hr class="mb-4">
-
-                    <div class="mb-3">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="termsConditions">
-                            <label class="custom-control-label" for="termsConditions">
-                                I have read and agree with the <a href="dummyLink">Terms & Conditions</a>.
-                            </label>
-                        </div>
+                </div>
+                <hr class="mb-4">
+                <br>
+                <!-- Terms and Conditions -->
+                <div class="mb-3">
+                    <div class="custom-control custom-checkbox form-group">
+                        <input formControlName="terms_conditions" type="checkbox" class="custom-control-input" id="terms_conditions">
+                        <label class="custom-control-label" for="terms_conditions">
+                            I have read, and agree with the <a href="dummyLink">Terms & Conditions</a>.
+                        </label>
                     </div>
-                    <!-- Phase 6: Terms & Conditions-->
-
-                    <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
-                </form>
-            </div>
+                </div>
+                <br>
+                <!--- Submit Button -->
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()">Submit</button>
+            </form>
+            {{ gymForm.value | json }}
         </div>
     </mat-card>
 </div>

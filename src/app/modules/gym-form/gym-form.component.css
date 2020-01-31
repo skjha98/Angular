@@ -1,0 +1,19 @@
+#wrapper{
+    position: relative;
+}
+
+.content{
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
+    position: relative;
+    z-index: 100;
+}
+.mainCard {
+    margin-top: 10px;
+}
+
+h2 {
+    color: #FFFFFF;
+}

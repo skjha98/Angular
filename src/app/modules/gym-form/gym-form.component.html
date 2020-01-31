@@ -1,0 +1,197 @@
+<h2 id="wrapper">Gym Membership Form</h2>
+<div class="container mainCard">
+    <mat-card>
+        <div>
+            <form [formGroup]="gymForm">
+                <p class="text-muted text-small">Personal Information</p>
+                <!-- Name and Employee ID-->
+                <div class="row">
+                    <div class="col-md-6 mb-3 form-group">
+                        <label for="name">Name</label>
+                        <input formControlName="name" type="text" class="form-control" id="name" placeholder="">
+                    </div>
+                    <div class="col-md-6 mb-3 form-group">
+                        <label for="employee_id">Employee ID</label>
+                        <input formControlName="employee_id" type="number" class="form-control" id="employee_id"
+                            placeholder="">
+                    </div>
+                </div>
+                <!-- Address of Residence -->
+                <div class="mb-3  form-group">
+                    <label for="address_of_residence">Address of Residence</label>
+                    <div class="input-group">
+                        <textarea formControlName="address_of_residence" class="form-control"
+                            id="address_of_residence"></textarea>
+                    </div>
+                </div>
+                <br>
+                <hr class="mb-4">
+                <div>
+                    <p class="text-muted text-small">Medical Information</p>
+                    <!-- Age, Chest and Hips -->
+                    <div class="row">
+                        <div class="col-md-4 mb-3 form-group">
+                            <label for="age">Age</label>
+                            <input formControlName="age" type="number" class="form-control" id="age" placeholder="">
+                        </div>
+                        <div class="col-md-4 mb-3 form-group">
+                            <label for="chest">Chest (cms)</label>
+                            <input formControlName="chest" type="number" class="form-control" id="chest"
+                                placeholder="104">
+                        </div>
+                        <div class="col-md-4 mb-3 form-group">
+                            <label for="hips">Hips</label>
+                            <input formControlName="hips" type="number" class="form-control" id="hips" placeholder="">
+                        </div>
+                    </div>
+                    <!-- Height, Upper Arms and Thighs-->
+                    <div class="row">
+                        <div class="col-md-4 mb-3 form-group">
+                            <label for="height">Height (Meters)</label>
+                            <input formControlName="height" type="number" class="form-control" id="height"
+                                placeholder="1.75">
+                        </div>
+                        <div class="col-md-4 mb-3 form-group">
+                            <label for="upper_arms">Upper Arms</label>
+                            <input formControlName="upper_arms" type="number" class="form-control" id="upper_arms"
+                                placeholder="">
+                        </div>
+                        <div class="col-md-4 mb-3 form-group">
+                            <label for="thighs">Thighs</label>
+                            <input formControlName="thighs" type="number" class="form-control" id="thighs"
+                                placeholder="">
+                        </div>
+                    </div>
+                    <!-- Weight, Waist and BMI -->
+                    <div class="row">
+                        <div class="col-md-4 mb-3 form-group required">
+                            <label for="weight">Weight (Kg)</label>
+                            <input formControlName="weight" type="number" class="form-control" id="weight"
+                                placeholder="60">
+                        </div>
+                        <div class="col-md-4 mb-3 form-group">
+                            <label for="waist">Waist</label>
+                            <input formControlName="waist" type="number" class="form-control" id="waist" placeholder="">
+                        </div>
+                        <div class="col-md-4 mb-3 form-group required">
+                            <label for="bmi">BMI</label>
+                            <input formControlName="bmi" type="number" class="form-control" id="bmi" placeholder=""
+                                readonly>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr class="mb-4">
+                <div>
+                    <p class="text-muted text-small">Do you have?</p>
+                    <div class="row" style="margin: auto;">
+                        <!-- cardiac Problems, Kidney Malfunction and Smoker -->
+                        <div class="col-md-4 mb-3">
+                            <div class="custom-control custom-checkbox form-group">
+                                <input formControlName="cardiac_problem" type="checkbox" class="custom-control-input"
+                                id="cardiac_problem">
+                                        <label class="custom-control-label" for="cardiac_problem">&nbsp;&nbsp;Cardiac
+                                            Problem</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="custom-control custom-checkbox form-group">
+                                <input formControlName="kidney_malfunction" type="checkbox" class="custom-control-input"
+                                id="kidney_malfunction">
+                                <label class="custom-control-label" for="kidney_malfunction">&nbsp;&nbsp;Kidney
+                                    Malfunction</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="custom-control custom-checkbox form-group">
+                                <input formControlName="smoker" type="checkbox" class="custom-control-input"
+                                id="smoker">
+                                <label class="custom-control-label" for="smoker">&nbsp;&nbsp;A Smoker</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin: auto;">
+                        <!-- Orthopaediac Ailment, Diabetes and Hypertension -->
+                        <div class="col-md-4 mb-3">
+                            <div class="custom-control custom-checkbox form-group">
+                                <input formControlName="orthopaediac_ailment" type="checkbox"
+                                class="custom-control-input" id="orthopaediac_ailment">
+                                        <label class="custom-control-label" for="orthopaediac_ailment">&nbsp;&nbsp;Orthopaediac
+                                            Ailment</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="custom-control custom-checkbox form-group">
+                                <input formControlName="diabetes" type="checkbox" class="custom-control-input"
+                                id="diabetes">
+                                <label class="custom-control-label" for="diabetes">&nbsp;&nbsp;Diabetes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="custom-control custom-checkbox form-group">
+                                <input formControlName="hypertensive" type="checkbox" class="custom-control-input"
+                                id="hypertensive">
+                                <label class="custom-control-label" for="hypertensive">&nbsp;&nbsp;Hypertensive</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Others -->
+                    <div class="mb-3 form-group">
+                        <label class="control-label" for="others">Others, Please Specify</label>
+                        <input formControlName="others" type="text" class="form-control" id="others" placeholder="">
+                    </div>
+                </div>
+                <br>
+                <hr class="mb-4">
+                <p class="text-muted text-small">Contact Details</p>
+                <!-- Contact Number and Emergency Contact Number -->
+                <div class="row">
+                    <div class="col-md-6 mb-3 form-group">
+                        <label class="control-label" for="contact_number">Contact Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input formControlName="contact_number" type="number" class="form-control"
+                                id="contact_number" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3 form-group">
+                        <label class="control-label" for="emergency_number">Emergency Contact Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input formControlName="emergency_number" type="number" class="form-control"
+                                id="emergency_number" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr class="mb-4">
+                <!-- Agreement and Declaration -->
+                <div class="mb-3">
+                    <div class="custom-control custom-checkbox form-group">
+                        <input formControlName="agreement" type="checkbox" class="custom-control-input" id="agreement">
+                        <label class="custom-control-label" for="agreement">
+                            I have read, and agree with the <a href="dummyLink">WAIVER AND RELEASE OF LIABILITY AND
+                                INDEMNITY AGREEMENT</a>.
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="custom-control custom-checkbox form-group">
+                        <input formControlName="declaration" type="checkbox" class="custom-control-input"
+                            id="declaration">
+                        <label class="custom-control-label" for="declaration">
+                            I have read, and agree with the <a href="dummyLink">Declaration</a>.
+                        </label>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()">Submit</button>
+            </form>
+        </div>
+        {{ gymForm.value | json}}
+    </mat-card>
+</div>

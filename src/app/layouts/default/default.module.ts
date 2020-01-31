@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestDialogComponent } from 'src/app/modules/dashboard/request-dialog/request-dialog.component';
 import { ParkingFormComponent } from 'src/app/modules/parking-form/parking-form.component';
+import { GymFormComponent } from 'src/app/modules/gym-form/gym-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { ParkingFormComponent } from 'src/app/modules/parking-form/parking-form.
     ProfileComponent,
     AssetsPageComponent,
     ParkingFormComponent,
+    GymFormComponent,
     DataTableComponent,
     RequestDialogComponent
   ],
@@ -44,6 +47,7 @@ import { ParkingFormComponent } from 'src/app/modules/parking-form/parking-form.
     NgbModule,
     HttpClientModule,
     MatSelectModule,
+    ReactiveFormsModule
   ],
 })
 export class DefaultModule { }
