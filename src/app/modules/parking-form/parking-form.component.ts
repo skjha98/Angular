@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-parking-form',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ParkingFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,15 @@ export class ParkingFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.gymForm.value);
+    this.push2Server();
+  }
+
+  push2Server() {
+    const _URL = "http://localhost:4000/form_data";
+    this.http.post<any>(_URL, this.gymForm.value).subscribe(
+      data => console.log("success",data),
+      error => console.log("Error", error)
+    );
   }
 
 }

@@ -2,27 +2,40 @@
 <div class="container mainCard">
     <mat-card>
         <div>
-            <form [formGroup]="gymForm">
+            <form [formGroup]="gymForm" (ngSubmit)="onSubmit()">
                 <p class="text-muted text-small">Personal Information</p>
                 <!-- Name and Employee ID-->
                 <div class="row">
                     <div class="col-md-6 mb-3 form-group">
                         <label for="name">Name</label>
-                        <input formControlName="name" type="text" class="form-control" id="name" placeholder="">
+                        <input
+                            [class.is-invalid]="submitted && gymForm.get('name').invalid && gymForm.get('name').touched"
+                            formControlName="name" type="text" class="form-control" id="name" placeholder="">
+                        <small [class.d-none]="gymForm.get('name').valid || gymForm.get('name').untouched"
+                            class="text-danger">Name is required</small>
                     </div>
                     <div class="col-md-6 mb-3 form-group">
                         <label for="employee_id">Employee ID</label>
-                        <input formControlName="employee_id" type="number" class="form-control" id="employee_id"
+                        <input
+                            [class.is-invalid]="submitted && gymForm.get('employee_id').invalid && gymForm.get('employee_id').touched"
+                            formControlName="employee_id" type="number" class="form-control" id="employee_id"
                             placeholder="">
+                        <small [class.d-none]="gymForm.get('employee_id').valid || gymForm.get('employee_id').untouched"
+                            class="text-danger">Employee ID is required</small>
                     </div>
                 </div>
                 <!-- Address of Residence -->
                 <div class="mb-3  form-group">
                     <label for="address_of_residence">Address of Residence</label>
                     <div class="input-group">
-                        <textarea formControlName="address_of_residence" class="form-control"
+                        <textarea
+                            [class.is-invalid]="gymForm.get('address_of_residence').invalid && gymForm.get('address_of_residence').touched"
+                            formControlName="address_of_residence" class="form-control"
                             id="address_of_residence"></textarea>
                     </div>
+                    <small
+                        [class.d-none]="gymForm.get('address_of_residence').valid || gymForm.get('address_of_residence').untouched"
+                        class="text-danger">Address is required</small>
                 </div>
                 <br>
                 <hr class="mb-4">
@@ -32,7 +45,11 @@
                     <div class="row">
                         <div class="col-md-4 mb-3 form-group">
                             <label for="age">Age</label>
-                            <input formControlName="age" type="number" class="form-control" id="age" placeholder="">
+                            <input
+                                [class.is-invalid]="submitted && gymForm.get('age').invalid && gymForm.get('age').touched"
+                                formControlName="age" type="number" class="form-control" id="age" placeholder="">
+                            <small [class.d-none]="gymForm.get('age').valid || gymForm.get('age').untouched"
+                                class="text-danger">Age is required</small>
                         </div>
                         <div class="col-md-4 mb-3 form-group">
                             <label for="chest">Chest (cms)</label>
@@ -48,8 +65,12 @@
                     <div class="row">
                         <div class="col-md-4 mb-3 form-group">
                             <label for="height">Height (Meters)</label>
-                            <input formControlName="height" type="number" class="form-control" id="height"
+                            <input
+                                [class.is-invalid]="submitted && gymForm.get('height').invalid && gymForm.get('height').touched"
+                                formControlName="height" type="number" class="form-control" id="height"
                                 placeholder="1.75">
+                            <small [class.d-none]="gymForm.get('height').valid || gymForm.get('height').untouched"
+                                class="text-danger">Height is required</small>
                         </div>
                         <div class="col-md-4 mb-3 form-group">
                             <label for="upper_arms">Upper Arms</label>
@@ -66,8 +87,12 @@
                     <div class="row">
                         <div class="col-md-4 mb-3 form-group required">
                             <label for="weight">Weight (Kg)</label>
-                            <input formControlName="weight" type="number" class="form-control" id="weight"
-                                placeholder="60">
+                            <input
+                                [class.is-invalid]="submitted && gymForm.get('weight').invalid && gymForm.get('weight').touched"
+                                (keyup)="updateBMI($event)" formControlName="weight" type="number" class="form-control"
+                                id="weight" placeholder="60">
+                            <small [class.d-none]="gymForm.get('weight').valid || gymForm.get('weight').untouched"
+                                class="text-danger">Weight is required</small>
                         </div>
                         <div class="col-md-4 mb-3 form-group">
                             <label for="waist">Waist</label>
@@ -89,15 +114,15 @@
                         <div class="col-md-4 mb-3">
                             <div class="custom-control custom-checkbox form-group">
                                 <input formControlName="cardiac_problem" type="checkbox" class="custom-control-input"
-                                id="cardiac_problem">
-                                        <label class="custom-control-label" for="cardiac_problem">&nbsp;&nbsp;Cardiac
-                                            Problem</label>
+                                    id="cardiac_problem">
+                                <label class="custom-control-label" for="cardiac_problem">&nbsp;&nbsp;Cardiac
+                                    Problem</label>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="custom-control custom-checkbox form-group">
                                 <input formControlName="kidney_malfunction" type="checkbox" class="custom-control-input"
-                                id="kidney_malfunction">
+                                    id="kidney_malfunction">
                                 <label class="custom-control-label" for="kidney_malfunction">&nbsp;&nbsp;Kidney
                                     Malfunction</label>
                             </div>
@@ -105,7 +130,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="custom-control custom-checkbox form-group">
                                 <input formControlName="smoker" type="checkbox" class="custom-control-input"
-                                id="smoker">
+                                    id="smoker">
                                 <label class="custom-control-label" for="smoker">&nbsp;&nbsp;A Smoker</label>
                             </div>
                         </div>
@@ -115,22 +140,22 @@
                         <div class="col-md-4 mb-3">
                             <div class="custom-control custom-checkbox form-group">
                                 <input formControlName="orthopaediac_ailment" type="checkbox"
-                                class="custom-control-input" id="orthopaediac_ailment">
-                                        <label class="custom-control-label" for="orthopaediac_ailment">&nbsp;&nbsp;Orthopaediac
-                                            Ailment</label>
+                                    class="custom-control-input" id="orthopaediac_ailment">
+                                <label class="custom-control-label" for="orthopaediac_ailment">&nbsp;&nbsp;Orthopaediac
+                                    Ailment</label>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="custom-control custom-checkbox form-group">
                                 <input formControlName="diabetes" type="checkbox" class="custom-control-input"
-                                id="diabetes">
+                                    id="diabetes">
                                 <label class="custom-control-label" for="diabetes">&nbsp;&nbsp;Diabetes</label>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="custom-control custom-checkbox form-group">
                                 <input formControlName="hypertensive" type="checkbox" class="custom-control-input"
-                                id="hypertensive">
+                                    id="hypertensive">
                                 <label class="custom-control-label" for="hypertensive">&nbsp;&nbsp;Hypertensive</label>
                             </div>
                         </div>
@@ -152,9 +177,13 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">+91</span>
                             </div>
-                            <input formControlName="contact_number" type="number" class="form-control"
-                                id="contact_number" placeholder="">
+                            <input
+                                [class.is-invalid]="submitted && gymForm.get('contact_number').invalid && gymForm.get('contact_number').touched"
+                                formControlName="contact_number" type="number" class="form-control" id="contact_number">
                         </div>
+                        <small
+                            [class.d-none]="gymForm.get('contact_number').valid || gymForm.get('contact_number').untouched"
+                            class="text-danger">Contact Number is required</small>
                     </div>
                     <div class="col-md-6 mb-3 form-group">
                         <label class="control-label" for="emergency_number">Emergency Contact Number</label>
@@ -162,9 +191,16 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">+91</span>
                             </div>
-                            <input formControlName="emergency_number" type="number" class="form-control"
-                                id="emergency_number" placeholder="">
+                            <input
+                                [class.is-invalid]="gymForm.get('emergency_number').invalid && gymForm.get('emergency_number').touched"
+                                formControlName="emergency_number" type="number" class="form-control"
+                                id="emergency_number">
                         </div>
+                        <small
+                            [class.d-none]="gymForm.get('emergency_number').valid || gymForm.get('emergency_number').untouched"
+                            class="text-danger">Emergency Contact Number is required</small>
+                        <small *ngIf="gymForm.errors?.same" class="text-danger">Contact Number and Emergency Contact
+                            Number should not be same!</small>
                     </div>
                 </div>
                 <br>
@@ -189,7 +225,7 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()">Submit</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
             </form>
         </div>
         {{ gymForm.value | json}}

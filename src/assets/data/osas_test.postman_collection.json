@@ -186,6 +186,123 @@
 					"body": "[\n    {\n        \"id\": 234,\n        \"emp_id\": 679699,\n        \"emp_name\": \"Pavan GUPTA\",\n        \"status\": \"Draft\",\n        \"form_id\": \"GYM\",\n        \"comments\": \"sample Comment\",\n        \"created_date\": \"2019-01-01\",\n        \"updated_date\": null,\n        \"activity\": [\n            {\n                \"id\": 2,\n                \"status\": \"Draft\",\n                \"action_taken_by\": \"pavan.gupta@soprasteria.com\",\n                \"comments\": \"Initial\",\n                \"created_date\": \"2019-01-01\"\n            }\n        ]\n    },\n    {\n        \"id\": 235,\n        \"emp_id\": 679690,\n        \"emp_name\": \"Pavan MITTAL\",\n        \"status\": \"Submitted\",\n        \"form_id\": \"PRK\",\n        \"comments\": \"Submiiting the form\",\n        \"created_date\": \"2019-10-10\",\n        \"updated_date\": \"2019-12-10\",\n        \"activity\": [\n            {\n                \"id\": 2,\n                \"status\": \"Draft\",\n                \"action_taken_by\": \"pavan.mittal@soprasteria.com\",\n                \"comments\": \"Initial\",\n                \"created_date\": \"2019-01-01\"\n            },\n            {\n                \"id\": 2,\n                \"status\": \"Submitted\",\n                \"action_taken_by\": \"pavan.mittal@soprasteria.com\",\n                \"comments\": \"Initial\",\n                \"created_date\": \"2019-01-01\"\n            },\n            {\n                \"id\": 3,\n                \"status\": \"Approved\",\n                \"action_taken_by\": \"manager@soprasteria.com\",\n                \"comments\": \"Approved\",\n                \"created_date\": \"2019-01-01\"\n            },\n            {\n                \"id\": 4,\n                \"status\": \"Final Approved\",\n                \"action_taken_by\": \"department@soprasteria.com\",\n                \"comments\": \"You can collect the sticket from Ground Floor\",\n                \"created_date\": \"2019-01-01\"\n            }\n        ]\n    }\n]"
 				}
 			]
+		},
+		{
+			"name": "form_add",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "form_add_failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/form_add?failed=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"form_add"
+							],
+							"query": [
+								{
+									"key": "failed",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 02 Feb 2020 17:35:07 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-YaEVSIb2dHYq3Q59IaS+LnoZ7Bo\""
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1580664966"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=7535553205f930ba"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=ed8c7d0df45b27b4"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"form_received\":false\n}"
+				},
+				{
+					"name": "form_add",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/form_add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"form_add"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n\t\"form_received\":true\n}"
+				}
+			]
 		}
 	],
 	"protocolProfileBehavior": {}
