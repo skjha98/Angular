@@ -105,10 +105,11 @@ export class GymFormComponent implements OnInit {
   }
 
   private async fetchPush2Server() {
-    const _url = "https://5d8fe12a-bde5-4c16-902a-473b479ca218.mock.pstmn.io/form_add?failed=1";
+    const _url = "https://5d8fe12a-bde5-4c16-902a-473b479ca218.mock.pstmn.io/form_add";
     this.data = await this.http.post<any>(_url, this.gymForm.value).toPromise();
     console.log(this.data);
     if (this.data.form_received == true) {
+      console.log('Form Uploaded!!!')
       this.route.navigate(['']);
     } else {
       alert("Something went wrong! Please try after sometime!");
