@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validator, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -79,7 +79,7 @@ export class GymFormComponent implements OnInit {
     if (this.gymForm.invalid || this.gymForm.errors != null) {
       return;
     } else if (!(this.gymForm.get('agreement').value && this.gymForm.get('declaration').value)) {
-      alert('You should agree with the Agreement and the Declaration!')
+      alert("You should agree with the Agreement and the Declaration!")
     }
     else {
       console.log("Success!!!", this.gymForm.value);
@@ -111,6 +111,7 @@ export class GymFormComponent implements OnInit {
     if (this.data.form_received == true) {
       console.log('Form Uploaded!!!')
       this.route.navigate(['']);
+      alert("Form submitted successfully");
     } else {
       alert("Something went wrong! Please try after sometime!");
     }

@@ -2,16 +2,20 @@
 <div class="container mainCard">
     <mat-card>
         <div class="col-md-12 order-md-1">
-            <form [formGroup]="gymForm">
+            <form [formGroup]="parkingForm">
                 <!-- Name and Employee ID -->
                 <div class="row">
                     <div class="col-md-6 mb-6 form-group">
                         <label for="name">Name</label>
-                        <input formControlName="name" type="text" class="form-control">
+                        <input [class.is-invalid]="submitted && parkingForm.get('name').invalid && parkingForm.get('name').touched" formControlName="name" type="text" class="form-control">
+                        <small [class.d-none]="parkingForm.get('name').valid || parkingForm.get('name').untouched"
+                            class="text-danger">Name is required</small>
                     </div>
                     <div class="col-md-6 mb-6 form-group">
                         <label for="employee_id">Employee ID</label>
-                        <input formControlName="employee_id" type="number" class="form-control">
+                        <input [class.is-invalid]="submitted && parkingForm.get('employee_id').invalid && parkingForm.get('employee_id').touched" formControlName="employee_id" type="number" class="form-control">
+                        <small [class.d-none]="parkingForm.get('employee_id').valid || parkingForm.get('employee_id').untouched"
+                            class="text-danger">Employee ID is required</small>
                     </div>
                 </div>
                 <!-- Level Particular and Registration Number-->
@@ -22,8 +26,10 @@
                     </div>
                     <div class="col-md-6 mb-6 form-group">
                         <label for="registration_number">Two-Wheeler / Car Registration Number</label>
-                        <input formControlName="registration_number" type="text" class="form-control"
+                        <input [class.is-invalid]="submitted && parkingForm.get('registration_number').invalid && parkingForm.get('registration_number').touched" formControlName="registration_number" type="text" class="form-control"
                             placeholder="XXXX-XX-1234">
+                        <small [class.d-none]="parkingForm.get('registration_number').valid || parkingForm.get('registration_number').untouched"
+                            class="text-danger">Registration Number is required</small>
                     </div>
                 </div>
                 <!-- Process Particular and Shift Particular -->
@@ -42,8 +48,10 @@
                 <div class="mb-3">
                     <label for="address_of_residence">Address of Residence</label>
                     <div class="input-group form-group">
-                        <textarea formControlName="address_of_residence" class="form-control"></textarea>
+                        <textarea [class.is-invalid]="submitted && parkingForm.get('address_of_residence').invalid && parkingForm.get('address_of_residence').touched" formControlName="address_of_residence" class="form-control"></textarea>
                     </div>
+                    <small [class.d-none]="parkingForm.get('address_of_residence').valid || parkingForm.get('address_of_residence').untouched" class="text-danger">Address of Residence is required</small>
+
                 </div>
                 <!-- Contact Number and Emergency Contact Number -->
                 <div class="row">
@@ -53,8 +61,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">+91</span>
                             </div>
-                            <input formControlName="contact_number" type="number" class="form-control">
+                            <input [class.is-invalid]="submitted && parkingForm.get('contact_number').invalid && parkingForm.get('contact_number').touched" formControlName="contact_number" type="number" class="form-control">
                         </div>
+                        <small [class.d-none]="parkingForm.get('contact_number').valid || parkingForm.get('contact_number').untouched" class="text-danger">Contact Number is required</small>
                     </div>
                     <div class="col-md-6 mb-3 form-group">
                         <label for="emergency_number">Emergency Contact Number</label>
@@ -62,8 +71,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">+91</span>
                             </div>
-                            <input formControlName="emergency_number" type="number" class="form-control">
+                            <input [class.is-invalid]="submitted && parkingForm.get('emergency_number').invalid && parkingForm.get('emergency_number').touched" formControlName="emergency_number" type="number" class="form-control">
                         </div>
+                        <small [class.d-none]="parkingForm.get('emergency_number').valid || parkingForm.get('emergency_number').untouched" class="text-danger">Emergency Number is required</small>
+                        <small *ngIf="parkingForm.errors?.same" class="text-danger">Contact Number and Emergency Contact
+                            Number should not be same!</small>
                     </div>
                 </div>
                 <hr class="mb-4">
@@ -82,7 +94,6 @@
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()">Submit</button>
             </form>
-            {{ gymForm.value | json }}
         </div>
     </mat-card>
 </div>
